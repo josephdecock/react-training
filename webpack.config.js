@@ -17,6 +17,9 @@ var config = {
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({ name: "vendor", filename: "vendor.bundle.js"})
   ],
+  resolve: {
+    extensions: ['.js', '.jsx']
+  },
   module : {
     loaders : [
       {

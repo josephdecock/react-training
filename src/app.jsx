@@ -1,9 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import ReactAgenda from './agendas/ReactAgenda';
+import ReduxAgenda from './agendas/ReduxAgenda';
+
 const App = () => (
     <div>
-        <h1>React Training</h1>
+        <ReactAgenda />
+        <ReduxAgenda />
     </div>
 );
 
