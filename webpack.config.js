@@ -6,7 +6,7 @@ var APP_DIR = path.resolve(__dirname, 'src');
 
 var config = {
   entry: {
-      app: APP_DIR + '/app.jsx',
+      app: APP_DIR + '/App.jsx',
       vendor: ['react', 'react-dom']
   },
   output: {

@@ -1,0 +1,74 @@
+body {
+    margin: 0px;
+    font-size: 1.2em;
+}
+ul {
+    margin: 0px;
+    margin-left: 15px;
+    padding: 0px;
+}
+
+li {
+    padding: 5px;
+    margin-left: 15px;
+}
+
+.sidebar {
+    width: 300px;
+    border-right: 1px solid black;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+}
+
+.content {
+    width: calc(100% - 300px);
+    position: absolute;
+    left: 300px;
+    top: 0px;
+    bottom: 0px;
+}
+
+.sidebar, .content {
+    float: left;
+    box-sizing: border-box;
+    padding: 10px;
+    overflow-y: scroll;
+}
+
+h1.title {
+    border-bottom: 1px solid black;
+}
+
+.section h2 {
+    cursor: pointer;
+    position: relative;
+}
+
+.section h2:after {
+    position: absolute;
+    right: 10px;
+    top: 0px;
+    display: block;
+}
+
+.section.section-open h2:after {
+    content: '-';
+}
+
+.section.section-closed h2:after {
+    content: '+';
+}
+
+.code-block {
+    padding: 10px;
+    background-color: #EEEEEE;
+    border: 2px dashed #CCCCCC;
+    white-space: pre-wrap;
+}
+
+.example {
+    padding: 10px;
+    border: 1px solid #CCCCCC;
+    margin-left: 30px;
+}

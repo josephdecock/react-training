@@ -1,14 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-import ReactAgenda from './agendas/ReactAgenda';
-import ReduxAgenda from './agendas/ReduxAgenda';
+import Routes from './Routes';
 
 const App = () => (
-    <div>
-        <ReactAgenda />
-        <ReduxAgenda />
-    </div>
+    <Routes />
 );
 
 ReactDOM.render(<App />, document.getElementById('appRoot'));

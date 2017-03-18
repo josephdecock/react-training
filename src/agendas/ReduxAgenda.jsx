@@ -2,7 +2,7 @@ import React from 'react';
 
 const ReduxAgenda = () => (
     <div className="redux-training-agenda agenda">
-        <h1>Redux Training Agenda</h1>
+        <h1>Redux Agenda</h1>
         <ul>
             <li>Introduction</li>
             <li>Reducers and State</li>
