@@ -19,9 +19,9 @@ const ReactAgenda = () => (
                     <li><Link to="/lesson2/classesVsfc">Classes vs Stateless Functional Components</Link></li>
                 </ul>
             </li>
-            <li>Forms</li>
-            <li>Higher Order Components</li>
-            <li>Routing</li>
+            <li><Link to="/lesson3">Forms</Link></li>
+            <li><Link to="/lesson4">Higher Order Components</Link></li>
+            <li><Link to="/lesson5">Routing</Link></li>
             <li>Component Libraries</li>
         </ul>
     </div>
