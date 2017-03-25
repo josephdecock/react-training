@@ -10,7 +10,8 @@ const LessonOne = () => (
         <Section title="What Is React (in a nutshell)" defaultOpen>
             <ul>
                 <li>React is a library for building the UI layer of your application in a declarative and componentized way.</li>
-                <li>It does not include any of the capabilities to build a full SPA such as a router or state manager.</li>
+                <li>As such, it is not MVVM and is really only V</li>
+                <li>Out of the box, it does not include any of the capabilities to build a full SPA such as a router or state manager.</li>
                 <li>The React ecosystem, however, has plenty of libraries that add those features.
                     <ul>
                         <li><a href="https://facebook.github.io/flux/" target="_blank">Flux</a></li>
@@ -20,11 +21,10 @@ const LessonOne = () => (
                     </ul>
                 </li>
                 <li>
-                    Your component markup is platform agnostic so a library is needed to actually render the content into your target platform (browser, mobile device, etc...)
+                    It makes no apology about coupling your view markup with your component logic
                     <ul>
-                        <li><a href="https://facebook.github.io/react/docs/react-dom.html" target="_blank">react-dom</a> for browsers</li>
-                        <li><a href="https://facebook.github.io/react/docs/react-dom-server.html" target="_blank">react-dom-server</a> for server side rendering</li>
-                        <li><a href="https://facebook.github.io/react-native/">react-native</a> for certain mobile devices or operating systems</li>
+                        <li>How often are templates reused by multiple components?</li>
+                        <li>Putting the markup inside of the component explicitly defines ownership</li>
                     </ul>
                 </li>
                 <li>
@@ -35,12 +35,20 @@ const LessonOne = () => (
                         <li>This reduces DOM updates and improves performance</li>
                     </ul>
                 </li>
+                <li>
+                    Your component markup is platform agnostic so a library is needed to actually render the content into your target platform (browser, mobile device, etc...)
+                    <ul>
+                        <li><a href="https://facebook.github.io/react/docs/react-dom.html" target="_blank">react-dom</a> for browsers</li>
+                        <li><a href="https://facebook.github.io/react/docs/react-dom-server.html" target="_blank">react-dom-server</a> for server side rendering</li>
+                        <li><a href="https://facebook.github.io/react-native/">react-native</a> for certain mobile devices or operating systems</li>
+                    </ul>
+                </li>
                 <li>When in the browser, you must write code that attaches (mounts) your application root to a DOM node</li>
             </ul>
             <Example>
                 <CodeBlock>
                     {`import { render } from 'react-dom';
-// this would normally be a component that renders your application, or your router config
+// this would normally be a component that renders your application or your router config
 const AppRoot = React.createElement('div', null, null);
 render(AppRoot, document.getElementById('mountPoint'));`}
                 </CodeBlock>

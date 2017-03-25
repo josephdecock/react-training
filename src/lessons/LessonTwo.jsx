@@ -8,6 +8,8 @@ import PropsLesson from './lessonTwo/PropsLesson';
 import LifecycleLesson from './lessonTwo/LifecycleLesson';
 import StateLesson from './lessonTwo/StateLesson';
 import ClassLesson from './lessonTwo/ClassLesson';
+import StatelessFunctionalComponentsLesson from './lessonTwo/StatelessFunctionalComponentsLesson';
+import ClassesVersusSFCLesson from './lessonTwo/ClassesVersusSFCLesson';
 
 const LessonTwo = (props) => (
     <div>
@@ -29,6 +31,12 @@ const LessonTwo = (props) => (
         </Section>
         <Section title="Lifecycle" defaultOpen={props.params.section === 'lifecycle'}>
             <LifecycleLesson />
+        </Section>
+        <Section title="Stateless Functional Components" defaultOpen={props.params.section === 'sfc'}>
+            <StatelessFunctionalComponentsLesson />
+        </Section>
+        <Section title="Classes versus Stateless Functional Components" defaultOpen={props.params.section === 'classesVsfc'}>
+            <ClassesVersusSFCLesson />
         </Section>
     </div>
 );

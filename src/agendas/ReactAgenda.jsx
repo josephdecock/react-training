@@ -15,13 +15,14 @@ const ReactAgenda = () => (
                     <li><Link to="/lesson2/classes">Classes</Link></li>
                     <li><Link to="/lesson2/state">State</Link></li>
                     <li><Link to="/lesson2/lifecycle">Lifecycle</Link></li>
-                    <li>Stateless Functional Components</li>
-                    <li>Classes vs Stateless Functional Components</li>
+                    <li><Link to="/lesson2/sfc">Stateless Functional Components</Link></li>
+                    <li><Link to="/lesson2/classesVsfc">Classes vs Stateless Functional Components</Link></li>
                 </ul>
             </li>
             <li>Forms</li>
             <li>Higher Order Components</li>
             <li>Routing</li>
+            <li>Component Libraries</li>
         </ul>
     </div>
 );
