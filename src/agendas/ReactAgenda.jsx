@@ -22,7 +22,7 @@ const ReactAgenda = () => (
             <li><Link to="/lesson3">Forms</Link></li>
             <li><Link to="/lesson4">Higher Order Components</Link></li>
             <li><Link to="/lesson5">Routing</Link></li>
-            <li>Component Libraries</li>
+            <li><Link to="/lesson6">Component Libraries</Link></li>
         </ul>
     </div>
 );

@@ -2,7 +2,9 @@ import React from 'react';
 import ReactAgenda from './agendas/ReactAgenda';
 import ReduxAgenda from './agendas/ReduxAgenda';
 
-const Home = (props) => (
+const Home = (props) => {
+    console.log(props);
+    return (
     <div>
         <nav className="sidebar">
             <ReactAgenda />
@@ -13,5 +15,6 @@ const Home = (props) => (
         </div>
     </div>
 );
+};
 
 export default Home;

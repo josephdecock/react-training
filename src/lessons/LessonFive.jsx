@@ -33,6 +33,7 @@ const LessonFive = () => (
                 <li>react-router supports redirecting the browser to another route.</li>
                 <li>Defining an <em>IndexRoute</em> means that if no other route matches then it will use that route instead.  This will <em>NOT</em> change the URL though.</li>
                 <li>If you would rather redirect the browser to a different route then you can use an <em>IndexRedirect</em>.  This will actually change the location to the route specified.</li>
+                <li>There is also a <em>Redirect</em> component that is like an IndexRedirect, but in this case will redirect only from a specific route instead of all unhandled routes.</li>
             </ul>
             <Example>
                 <CodeBlock>
@@ -68,7 +69,26 @@ ReactDOM.render(<Routes />, document.getElementById('appRoot'));`}
                 </CodeBlock>
                 <div>This <em>Routes</em> component that we have created is essentially going to become our top-level application component.</div>
                 <div><em>Home</em> is a higher order component that renders for any route, and the more specific components will be passed in via <em>props.children</em>.</div>
+                <div>In this example, the <em>LessonTwo</em> component has an optional path parameter <em>section</em>.  Parameters are noted with <em>:</em>, and anything enclosed in parentheses is considered optional.</div>
             </Example>
+            <h3>Navigating</h3>
+            <ul>
+                <li>
+                    There are several methods exposed by react-router that let you navigate.
+                    <ul>
+                        <li><em>go</em> lets you move forward or backward in the history.</li>
+                        <li><em>push</em> lets you push a new route on to the end of the history and then navigates there.</li>
+                        <li><em>replace</em> lets you navigate to a route but it replaces the last history item instead of creating a new history point.</li>
+                    </ul>
+                </li>
+            </ul>
+            <h3>Accessing Router Information in Components</h3>
+            <ul>
+                <li>react-router will pass pieces of information to all components that have routes.  So in the example above, Home and Lessons 1-5 will all receive router information, but any components that those render will not.</li>
+                <li>In order to allow deeply nested components to be able to access route information, react-router exposes a <em>withRouter</em> higher order component.  If you wrap your component with <em>withRouter</em> then it will pass in several properties to your component.</li>
+                <li>If you need to navigate you can either use the methods like <em>go</em>, <em>push</em>, and <em>replace</em> on the router instance, or you can import those functions standalone into your component.</li>
+                <li>If you want to create a link that jumps you to a different route instead of doing a <em>router.push</em> to push the new route, you can just use the <em>Link</em> component provided by react-router and it will handle updating the URL when clicked.</li>
+            </ul>
         </Section>
     </div>
 );
