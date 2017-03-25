@@ -85,6 +85,37 @@ const LessonThree = () => (
                 </CodeBlock>
                 <div>In this example, <em>this.input</em> is a reference to the actual DOM input element so you have full access to all of the standard DOM methods and properties.</div>
             </Example>
+            <h3>Form Submission</h3>
+            <ul>
+                <li>A common approach is to wrap your form fields inside of a <em>form</em> and then attach an <em>onSubmit</em> handler to the form to manually perform the submission.</li>
+                <li>You could also wire up an <em>onClick</em> to a button if you would like</li>
+            </ul>
+            <Example>
+                <CodeBlock>
+                    {`class MyComponent extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.input = null;
+        this.submitForm = this.submitForm.bind(this);
+    }
+
+    submitForm() {
+        // pull the form values and POST it to your API
+        alert(this.input.value);
+    }
+
+    render() {
+        return (
+            <form onSubmit={this.submitForm}>
+                <input type="text" ref={(input) => this.input = input} />
+                <button type="submit">Submit</button>
+            </form>
+        );
+    }
+}`}
+                </CodeBlock>
+            </Example>
         </Section>
     </div>
 );

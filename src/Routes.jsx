@@ -7,6 +7,7 @@ import LessonThree from './lessons/LessonThree';
 import LessonFour from './lessons/LessonFour';
 import LessonFive from './lessons/LessonFive';
 import LessonSix from './lessons/LessonSix';
+import ContactForm from './exercises/ContactForm';
 
 const Routes = () => (
     <Router history={hashHistory}>
@@ -18,6 +19,7 @@ const Routes = () => (
             <Route path="/lesson4" component={LessonFour} />
             <Route path="/lesson5" component={LessonFive} />
             <Route path="/lesson6" component={LessonSix} />
+            <Route path="/exercise/react" component={ContactForm} />
         </Route>
     </Router>
 );
