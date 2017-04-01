@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router';
-import Title from '../components/Title';
-import Section from '../components/Section';
+import Title from '../../components/Title';
+import Section from '../../components/Section';
 import JsxLesson from './lessonTwo/JsxLesson';
 import ElementLesson from './lessonTwo/ElementLesson';
 import PropsLesson from './lessonTwo/PropsLesson';

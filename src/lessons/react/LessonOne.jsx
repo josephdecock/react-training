@@ -1,8 +1,8 @@
 import React from 'react';
-import Title from '../components/Title';
-import Section from '../components/Section';
-import Example from '../components/Example';
-import CodeBlock from '../components/CodeBlock';
+import Title from '../../components/Title';
+import Section from '../../components/Section';
+import Example from '../../components/Example';
+import CodeBlock from '../../components/CodeBlock';
 
 const LessonOne = () => (
     <div>
@@ -11,6 +11,21 @@ const LessonOne = () => (
             <ul>
                 <li>React is a library for building the UI layer of your application in a declarative and componentized way.</li>
                 <li>As such, it is not MVVM and is really only V</li>
+                <li>
+                    It is not purely functional, but it can be helpful to think of it that way.
+                    <ul>
+                        <li>You can think of components as functions.</li>
+                        <li>These functions compose other functions (components).</li>
+                    </ul>
+                </li>
+                <li>
+                    React adheres to a "data down, actions up" approach
+                    <ul>
+                        <li>Data flows down from parent components to child components.</li>
+                        <li>Data should not be passed back up.</li>
+                        <li>Actions however bubble up from child components to parent components.</li>
+                    </ul>
+                </li>
                 <li>Out of the box, it does not include any of the capabilities to build a full SPA such as a router or state manager.</li>
                 <li>The React ecosystem, however, has plenty of libraries that add those features.
                     <ul>
@@ -18,13 +33,14 @@ const LessonOne = () => (
                         <li><a href="http://redux.js.org/" target="_blank">Redux</a></li>
                         <li><a href="https://mobx.js.org/" target="_blank">Mobx</a></li>
                         <li><a href="https://reacttraining.com/react-router/" target="_blank">React-Router</a></li>
+                        <li><a href="https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en" target="_blank">React DevTools</a></li>
                     </ul>
                 </li>
                 <li>
                     It makes no apology about coupling your view markup with your component logic
                     <ul>
-                        <li>How often are templates reused by multiple components?</li>
-                        <li>Putting the markup inside of the component explicitly defines ownership</li>
+                        <li>How often are templates actually reused by multiple view models/components?</li>
+                        <li>Putting the markup inside of the component explicitly defines ownership.</li>
                     </ul>
                 </li>
                 <li>

@@ -1,6 +1,6 @@
 import React from 'react';
-import Title from '../components/Title';
-import Section from '../components/Section';
+import Title from '../../components/Title';
+import Section from '../../components/Section';
 
 const LessonSix = () => (
     <div>

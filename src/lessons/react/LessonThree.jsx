@@ -1,8 +1,8 @@
 import React from 'react';
-import Title from '../components/Title';
-import Section from '../components/Section';
-import Example from '../components/Example';
-import CodeBlock from '../components/CodeBlock';
+import Title from '../../components/Title';
+import Section from '../../components/Section';
+import Example from '../../components/Example';
+import CodeBlock from '../../components/CodeBlock';
 
 const LessonThree = () => (
     <div>

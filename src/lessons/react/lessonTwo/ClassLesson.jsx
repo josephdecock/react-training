@@ -1,6 +1,6 @@
 import React from 'react';
-import CodeBlock from '../../components/CodeBlock';
-import Example from '../../components/Example';
+import CodeBlock from '../../../components/CodeBlock';
+import Example from '../../../components/Example';
 
 const ClassLesson = () => {
     return (
