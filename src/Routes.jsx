@@ -12,6 +12,8 @@ import ReduxLessonOne from './lessons/redux/LessonOne';
 import ReduxLessonTwo from './lessons/redux/LessonTwo';
 import ReduxLessonThree from './lessons/redux/LessonThree';
 import ReduxLessonFour from './lessons/redux/LessonFour';
+import ReduxLessonFive from './lessons/redux/LessonFive';
+import ReduxLessonSix from './lessons/redux/LessonSix';
 
 const Routes = () => (
     <Router history={hashHistory}>
@@ -28,6 +30,8 @@ const Routes = () => (
             <Route path="/redux/lesson2(/:section)" component={ReduxLessonTwo} />
             <Route path="/redux/lesson3(/:section)" component={ReduxLessonThree} />
             <Route path="/redux/lesson4" component={ReduxLessonFour} />
+            <Route path="/redux/lesson5" component={ReduxLessonFive} />
+            <Route path="/redux/lesson6" component={ReduxLessonSix} />
         </Route>
     </Router>
 );

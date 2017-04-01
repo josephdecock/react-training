@@ -23,8 +23,8 @@ const ReduxAgenda = () => (
                 </ul>
             </li>
             <li><Link to="/redux/lesson4">Connected Components</Link></li>
-            <li>ImmutableJS</li>
-            <li>Middleware/Asynchronous Operations</li>
+            <li><Link to="/redux/lesson5">ImmutableJS</Link></li>
+            <li><Link to="/redux/lesson6">Middleware/Asynchronous Operations</Link></li>
             <li>Practical Considerations</li>
         </ul>
     </div>
