@@ -4,10 +4,10 @@ import Section from '../../components/Section';
 import Example from '../../components/Example';
 import CodeBlock from '../../components/CodeBlock';
 
-const LessonThree = () => (
+const LessonThree = (props) => (
     <div>
         <Title>Lesson 3 - Reducers and State</Title>
-        <Section title="Reducers" defaultOpen>
+        <Section title="Reducers" defaultOpen={props.params.section === 'reducers' || !props.params.section}>
             <ul>
                 <li>Reducers in Redux are functions that update a specific slice of your application's state.</li>
                 <li>
@@ -86,6 +86,121 @@ const reducer = combineReducers({
 `}
                 </CodeBlock>
                 <div>This accomplishes pretty much the same thing as my first example.</div>
+            </Example>
+        </Section>
+        <Section title="State" defaultOpen={props.params.section === 'state'}>
+            <ul>
+                <li>Redux has techniques to expose your state to your application.</li>
+                <li>However, there are also ways that you can grab references to your state outside of those approved ways.</li>
+                <li>It is <strong>strongly</strong> recommended that you only use the approved ways of getting access to the state.</li>
+                <li>If you try to reference it on your own you might be accessing state that has been partially updated.</li>
+            </ul>
+            <h3>Designing your state</h3>
+            <ul>
+                <li>It is highly recommended that you spend time before writing any code to design the shape of your state.</li>
+                <li>If you just start coding away you may find yourself coded into a corner when it comes to your state.</li>
+                <li>Also consider how you will access your state when designing the shape.</li>
+                <li>If you are storing an array of objects and you are planning on searching for a single item then consider normalizing your state.</li>
+            </ul>
+            <Example>
+                <CodeBlock>
+                    {`// un-normalized
+const state = {
+    posts: [{ title: 'Hello', id: 10 }],
+};
+
+// normalized
+const state = {
+    postIds: [ 10 ],
+    postsById: {
+        10: {
+            title: 'Hello',
+            id: 10,
+        },
+    },
+};`}
+                </CodeBlock>
+                <div>This approach allows you to still easily iterate over the posts (using the array of ids) as well as query by id.</div>
+            </Example>
+            <ul>
+                <li><a href="https://github.com/paularmstrong/normalizr" target="_blank">Normalizr</a> is a decent library that normalizes your JSON data for you.</li>
+                <li>You supply a schema of the JSON data and it will transform it for you.</li>
+                <li>This is more useful if you have deeply nested JSON objects.</li>
+            </ul>
+        </Section>
+        <Section title="Selectors" defaultOpen={props.params.section === 'reselect'}>
+            <ul>
+                <li>So you have designed your state and created your reducers that let you update your state.  Now how do you access this state?</li>
+                <li>Usually you will want to create a <em>selector</em>, which is essentially a function that returns a specific value from the state.</li>
+            </ul>
+            <Example>
+                <CodeBlock>
+                    {`const state = {
+    postIds: [ 10 ],
+    postsById: {
+        10: {
+            title: 'Hello',
+            id: 10,
+        },
+    },
+};
+
+// this is a selector that returns all posts
+const postsSelector = (state) => state.postIds.map((id) => state.postsById[id]);
+
+// this is a selector that returns a specific post
+const postByIdSelector = (state, postId) => state.postsById[postId];`}
+                </CodeBlock>
+            </Example>
+            <h3>Reselect</h3>
+            <ul>
+                <li>Your selectors can also perform calculations on your state and return the calculated values.</li>
+                <li>It is usually preferable to put your raw data in your state, or at least as close to raw as possible, and then use selectors for expensive calculations.</li>
+                <li>This is also where the <a href="https://github.com/reactjs/reselect" target="_blank">reselect</a> library comes in to play.</li>
+                <li>Reselect memoizes the output, so it will cache the output and return the cached value every time that it is called with the same parameters.</li>
+                <li>Since the state (or slice of state) is included in the parameters to the selector, this means that the selector will only ever execute once for a given state value.</li>
+                <li>Again, since selectors are simply functions then you can compose them into higher level selectors.</li>
+                <li>Reselect also lets you combine multiple selectors into one and then output a single value.</li>
+            </ul>
+            <Example>
+                <CodeBlock>
+                    {`import { createSelector } from 'reselect';
+const state = {
+    userIds: [ 1, 2 ],
+    usersById: {
+        1: {
+            name: 'User 1',
+        },
+        2: {
+            name: 'User 2',
+        },
+    },
+    postIds: [ 10, 11, 12 ],
+    postsById: {
+        10: {
+            title: 'Hello',
+            author: 1,
+        },
+        11: {
+            title: 'Hello 2',
+            author: 2,
+        },
+        12: {
+            title: 'Hello 3',
+            author: 1,
+        },
+    },
+};
+
+const usersByIdSelector = (state) => state.usersById);
+const postsSelector = (state) => state.postIds.map((id) => state.postsById[id]);
+
+// this takes the two selectors and mashes them together into a single output
+const combinedSelector = createSelector(usersByIdSelector, postsSelector, (usersById, posts) => {
+    return posts.map((post) => return Object.assign({}, post, { author: usersById[post.author]}));
+});
+`}
+                </CodeBlock>
             </Example>
         </Section>
     </div>

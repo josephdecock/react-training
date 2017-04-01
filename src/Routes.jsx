@@ -11,6 +11,7 @@ import ContactForm from './exercises/ContactForm';
 import ReduxLessonOne from './lessons/redux/LessonOne';
 import ReduxLessonTwo from './lessons/redux/LessonTwo';
 import ReduxLessonThree from './lessons/redux/LessonThree';
+import ReduxLessonFour from './lessons/redux/LessonFour';
 
 const Routes = () => (
     <Router history={hashHistory}>
@@ -25,7 +26,8 @@ const Routes = () => (
             <Route path="/exercise/react" component={ContactForm} />
             <Route path="/redux/lesson1" component={ReduxLessonOne} />
             <Route path="/redux/lesson2(/:section)" component={ReduxLessonTwo} />
-            <Route path="/redux/lesson3" component={ReduxLessonThree} />
+            <Route path="/redux/lesson3(/:section)" component={ReduxLessonThree} />
+            <Route path="/redux/lesson4" component={ReduxLessonFour} />
         </Route>
     </Router>
 );

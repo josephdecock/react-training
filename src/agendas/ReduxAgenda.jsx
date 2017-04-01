@@ -14,10 +14,18 @@ const ReduxAgenda = () => (
                     <li><Link to="/redux/lesson2/higher-order">Higher Order</Link></li>
                 </ul>
             </li>
-            <li><Link to="/redux/lesson3">Reducers and State</Link></li>
-            <li>Connected Components</li>
+            <li>
+                <div><Link to="/redux/lesson3">Reducers and State</Link></div>
+                <ul>
+                    <li><Link to="/redux/lesson3/reducers">Reducers</Link></li>
+                    <li><Link to="/redux/lesson3/state">State</Link></li>
+                    <li><Link to="/redux/lesson3/reselect">Selectors</Link></li>
+                </ul>
+            </li>
+            <li><Link to="/redux/lesson4">Connected Components</Link></li>
             <li>ImmutableJS</li>
             <li>Middleware/Asynchronous Operations</li>
+            <li>Practical Considerations</li>
         </ul>
     </div>
 );
