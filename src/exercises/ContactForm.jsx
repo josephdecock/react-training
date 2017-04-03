@@ -25,6 +25,7 @@ const ContactForm = () => (
         </Section>
         <Section title="Instructions" defaultOpen>
             <ul>
+                <li>There is an <em>exercises/react/Contact.jsx</em> file in the training materials that can be the entry point for your React app.</li>
                 <li>
                     Create a simple contact form that performs the following.
                     <ul>

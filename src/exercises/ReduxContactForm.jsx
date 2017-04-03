@@ -25,6 +25,7 @@ const ReduxContactForm = () => (
         </Section>
         <Section title="Instructions" defaultOpen>
             <ul>
+                <li>There is an <em>exercises/redux/Contact.jsx</em> file in the training materials that can be the entry point for your Redux app.</li>
                 <li>
                     Create a simple contact form that performs the following.
                     <ul>
