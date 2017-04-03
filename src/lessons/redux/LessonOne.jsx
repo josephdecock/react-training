@@ -7,7 +7,7 @@ import CodeBlock from '../../components/CodeBlock';
 const LessonOne = (props) => (
     <div>
         <Title>Lesson 1 - Introduction to Redux</Title>
-        <Section title="What Is Redux" defaultOpen>
+        <Section title="What Is Redux" defaultOpen={!props.params.section || props.params.section === 'intro'}>
             <ul>
                 <li>Redux describes <a href="http://redux.js.org/" target="_blank">itself</a> as a predictable state container for JavaScript apps.</li>
                 <li>Essentially it is a pattern for managing your application's state as well as user actions.</li>
@@ -30,14 +30,14 @@ const LessonOne = (props) => (
         <Section title="Basic Architecture" defaultOpen={props.params.section === 'basic'}>
             <ul>
                 <li>Redux stores your application's state in an object called the <em>store</em>.</li>
-                <li>There is only allowed to be one store per Redux application</li>
-                <li>However, you are allowed to break up your state into several slices.</li>
-                <li>Each slice of your state is called a <em>reducer</em>, which is really a function that is responsible for returning the value of that slice of your state.</li>
-                <li>The reducer controls the value of its own slice of state so you are not allowed to directly update any data in the store.</li>
-                <li>If you need to update the state, then you have to dispatch an <em>action</em> that indicates what you want to do.</li>
+                <li>There is only allowed to be one store per Redux application.</li>
+                <li>However, you are allowed to break up your state into slices.</li>
+                <li>Each slice of your state is called a <em>reducer</em>, which is really just a function that is responsible for returning the value of that slice of your state.</li>
+                <li>The reducer controls the value of its own slice of state so that you are not allowed to directly update any data in the store.</li>
+                <li>If you need to update the state then you have to dispatch an <em>action</em> that indicates what you want to do.</li>
                 <li>The reducer functions for every slice are then called with the current state and that action and are allowed to return a new value for that slice of state that reflects the action.</li>
                 <li>Components can subscribe to specific values from your state which allows them to access the current values.</li>
-                <li>These subscriptions also allows Redux and be re-rendered whenever that specific value is updated.</li>
+                <li>These subscriptions also allows Redux to re-render components whenever a state value subscribed by that component is updated.</li>
             </ul>
         </Section>
     </div>

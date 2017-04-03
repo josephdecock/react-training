@@ -5,7 +5,13 @@ const ReduxAgenda = () => (
     <div className="redux-training-agenda agenda">
         <h1>Redux Agenda</h1>
         <ul>
-            <li><Link to="/redux/lesson1">Introduction</Link></li>
+            <li>
+                <div><Link to="/redux/lesson1">Introduction</Link></div>
+                <ul>
+                    <li><Link to="/redux/lesson1/intro">Introduction</Link></li>
+                    <li><Link to="/redux/lesson1/basic">Basic Architecture</Link></li>
+                </ul>
+            </li>
             <li>
                 <div><Link to="/redux/lesson2">Actions and Action Creators</Link></div>
                 <ul>
@@ -25,7 +31,14 @@ const ReduxAgenda = () => (
             <li><Link to="/redux/lesson4">Connected Components</Link></li>
             <li><Link to="/redux/lesson5">ImmutableJS</Link></li>
             <li><Link to="/redux/lesson6">Middleware/Asynchronous Operations</Link></li>
-            <li>Practical Considerations</li>
+            <li>
+                <div><Link to="/redux/lesson7">Practical Considerations</Link></div>
+                <ul>
+                    <li><Link to="/redux/lesson7/unit-testing">Unit Testing</Link></li>
+                    <li><Link to="/redux/lesson7/structure">Code Structure</Link></li>
+                </ul>
+            </li>
+            <li><Link to="/exercise/redux">Redux Exercise</Link></li>
         </ul>
     </div>
 );

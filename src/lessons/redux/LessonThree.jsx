@@ -87,6 +87,44 @@ const reducer = combineReducers({
                 </CodeBlock>
                 <div>This accomplishes pretty much the same thing as my first example.</div>
             </Example>
+            <ul>
+                <li>One other thing that you could do with functional concepts is make a higher order reducer if you have a lot of shared logic.</li>
+            </ul>
+            <Example>
+                <CodeBlock>
+                    {`const REQUEST_STATUS = {
+    FETCHING: 'FETCHING',
+    NONE: 'NONE',
+    FAILED: 'FAILED',
+};
+const initialState = {
+    data: {},
+    status: REQUEST_STATUS.NONE,
+    errorMessage: null,
+};
+const higherOrderReducer = (prefix) => {
+    return function(state = initialState, action) {
+        switch (action.type): {
+            case \`\${prefix}_FETCHING\`: {
+                return Object.assign({}, state, { data: {}, status: REQUEST_STATUS.FETCHING, errorMessage: null });
+            }
+            case \`\${prefix}_FETCHED\`: {
+                return Object.assign({}, state, { data: action.data, status: REQUEST_STATUS.NONE, errorMessage: null });
+            }
+            case \`\${prefix}_ERROR\`: {
+                return Object.assign({}, state, { data: {}, status: REQUEST_STATUS.FAILED, errorMessage: action.error });
+            }
+            default:
+                return state;
+        }
+    };
+};
+
+const postsReducer = higherOrderReducer('POSTS');
+const authorsReducer = higherOrderReducer('AUTHORS');
+`}
+                </CodeBlock>
+            </Example>
         </Section>
         <Section title="State" defaultOpen={props.params.section === 'state'}>
             <ul>
