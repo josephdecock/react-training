@@ -10,12 +10,22 @@ const LessonOne = () => (
         <Section title="What Is React (in a nutshell)" defaultOpen>
             <ul>
                 <li>React is a library for building the UI layer of your application in a declarative and componentized way.</li>
-                <li>As such, it is not MVVM and is really only V</li>
+                <li>Facebook took a practical view of real world web development and built a framework based on that</li>
+                <li>As such, it is really only the <em>V</em> part of MVVM</li>
                 <li>
-                    It is not purely functional, but it can be helpful to think of it that way.
+                    For starters, it makes no apology about coupling your view markup with your component logic
                     <ul>
-                        <li>You can think of components as functions.</li>
-                        <li>These functions compose other functions (components).</li>
+                        <li>How often are templates actually reused by multiple view models/components?</li>
+                        <li>Putting the markup inside of the component explicitly defines ownership.</li>
+                        <li>The purpose of your component is to render specific markup, so why separate them?</li>
+                    </ul>
+                </li>
+                <li>
+                    While it is not purely functional, it can be helpful to think of it that way.
+                    <ul>
+                        <li>You can think of components as functions that return component trees.</li>
+                        <li>These functions can compose other functions (components).</li>
+                        <li>The typical approach in React is not to extend another component, but wrap it with a higher order component.</li>
                     </ul>
                 </li>
                 <li>
@@ -23,10 +33,10 @@ const LessonOne = () => (
                     <ul>
                         <li>Data flows down from parent components to child components.</li>
                         <li>Data should not be passed back up.</li>
-                        <li>Actions however bubble up from child components to parent components.</li>
+                        <li>Actions however, bubble up from child components to parent components.</li>
                     </ul>
                 </li>
-                <li>Out of the box, it does not include any of the capabilities to build a full SPA such as a router or state manager.</li>
+                <li>Out of the box React does not include any of the capabilities to build a full SPA, such as a router or state manager.</li>
                 <li>The React ecosystem, however, has plenty of libraries that add those features.
                     <ul>
                         <li><a href="https://facebook.github.io/flux/" target="_blank">Flux</a></li>
@@ -37,29 +47,22 @@ const LessonOne = () => (
                     </ul>
                 </li>
                 <li>
-                    It makes no apology about coupling your view markup with your component logic
+                    Like other modern web frameworks, React uses a virtual DOM for performance reasons.
                     <ul>
-                        <li>How often are templates actually reused by multiple view models/components?</li>
-                        <li>Putting the markup inside of the component explicitly defines ownership.</li>
+                        <li>React renders the component tree into an in-memory virtual DOM and compares that to the previously rendered virtual component tree.</li>
+                        <li>This allows React to do a diff between the previous and current component states and update only the DOM nodes that actually modified in the new render cycle.</li>
+                        <li>This reduces DOM updates to only the items that were modified and improves performance.</li>
                     </ul>
                 </li>
                 <li>
-                    Uses a virtual DOM for performance
-                    <ul>
-                        <li>React renders the component tree into a virtual DOM in-memory and compares that to the previously rendered component tree</li>
-                        <li>This allows React to do a diff between the previous and current component states and update only the DOM nodes that actually changed</li>
-                        <li>This reduces DOM updates and improves performance</li>
-                    </ul>
-                </li>
-                <li>
-                    Your component markup is platform agnostic so a library is needed to actually render the content into your target platform (browser, mobile device, etc...)
+                    The markup for React components is platform agnostic, which means that a library is needed to actually render the content into your target platform (browser, mobile device, etc...)
                     <ul>
                         <li><a href="https://facebook.github.io/react/docs/react-dom.html" target="_blank">react-dom</a> for browsers</li>
                         <li><a href="https://facebook.github.io/react/docs/react-dom-server.html" target="_blank">react-dom-server</a> for server side rendering</li>
                         <li><a href="https://facebook.github.io/react-native/">react-native</a> for certain mobile devices or operating systems</li>
                     </ul>
                 </li>
-                <li>When in the browser, you must write code that attaches (mounts) your application root to a DOM node</li>
+                <li>When in the browser, you must write code that attaches (mounts) your application root to a DOM node.</li>
             </ul>
             <Example>
                 <CodeBlock>

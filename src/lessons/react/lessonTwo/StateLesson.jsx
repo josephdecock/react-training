@@ -35,7 +35,10 @@ const StateLesson = () => {
             <h3>Updating State</h3>
             <ul>
                 <li>The state updates asynchronously when called.</li>
-                <li>It does accept a callback though, so if you need to chain state updates then you can register a callback that performs the subsequent updates.</li>
+                <li>State updating occurs as a merge, so you only need to specify the properties that are changing when you update state.</li>
+                <li>Even though the component re-renders when the state is updated, the re-render will not guaranteed to occur in the same event loop.</li>
+                <li>React might in some cases merge multiple state update calls into a single update, so don't expect the state in subsequent updates to be fully updated.</li>
+                <li>If you need to chain state updates, you will need to pass a callback to your state update function.</li>
                 <li>This is also important to remember when doing unit tests.  If your code under test calls <em>setState</em> then you are going to need to deal with asynchronous behavior.</li>
             </ul>
             <Example>
@@ -57,6 +60,21 @@ const StateLesson = () => {
 }`}
                 </CodeBlock>
                 <div>Clicking on the div will trigger a call to <em>setState</em> that updates the state.  After the state is updated, the component will be re-rendered with the new state data and the new string will appear in the UI</div>
+            </Example>
+            <ul>
+                <li>Both the props and state can be updated asynchronously at any time, so if you need to rely on both the props and the state when updating your state you might have stale values.</li>
+                <li>There is another signature for setState that you can use in this situation.</li>
+            </ul>
+                        <Example>
+                <CodeBlock>
+                    {`this.setState((prevState, props) => {
+    // whatever I return from here will be merged with my state
+    return {
+        myKey: prevState.count + props.index,
+    };
+});`}
+                </CodeBlock>
+                <div>React will call this with the previous state as well as the current props so you can be sure that you are using the current data.</div>
             </Example>
         </div>
     );

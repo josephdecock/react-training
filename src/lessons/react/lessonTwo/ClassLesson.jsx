@@ -6,9 +6,9 @@ const ClassLesson = () => {
     return (
         <div>
             <ul>
-                <li>Writing <em>React.createElement</em> every time that you want to create a component does not feel very modern, so React provides an abstract class for you to use instead</li>
+                <li>Writing <em>React.createElement</em> every time that you want to create a component does not feel very modern, which is fine because React provides an abstract class for you to use instead</li>
                 <li>As long as your class extends from <em>React.Component</em> and provides a render method then it will work as a React component</li>
-                <li>props are passed in to the constructor of the component and added to the instance so they can be referenced by <em>this.props</em></li>
+                <li>Props are passed in to the constructor of the component and added to the instance so they can be referenced by <em>this.props</em></li>
             </ul>
             <Example>
                 <CodeBlock>
@@ -37,6 +37,7 @@ const ClassLesson = () => {
     }
 }`}
                 </CodeBlock>
+                <div>This is an example of using the constructor to perform some basic initialization.</div>
             </Example>
         </div>
     );
