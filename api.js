@@ -21,10 +21,12 @@ app.get('/', function (req, res) {
 
 app.get('/contact', function(req, res) {
     const allContacts = contactIds.map((id) => contacts[id]);
+    res.append('Content-Type', 'application/json');
     res.send(allContacts);
 });
 
 app.get('/contact/:id', function(req, res) {
+    res.append('Content-Type', 'application/json');
     res.send(contacts[req.params.id]);
 });
 
