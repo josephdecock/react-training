@@ -3,11 +3,24 @@ import { connect } from 'react-redux';
 import { submittingSelector, errorMessageSelector, createContact } from '../modules/AddContact';
 import Loading from './Loading';
 
+const wasSuccessfulSubmission = (newIsSubmitting, oldIsSubmitting, newErrorMessage) => {
+    if (!newIsSubmitting && oldIsSubmitting && newErrorMessage === null) {
+        return true;
+    }
+
+    return false;
+};
+
 export class AddContact extends React.Component {
     constructor(props) {
         super(props);
 
         this.addContact = this.addContact.bind(this);
+
+        // default the error message to the value from the redux store
+        this.state = {
+            errorMessage: props.errorMessage,
+        };
     }
 
     addContact() {
@@ -19,11 +32,30 @@ export class AddContact extends React.Component {
             message: this.messageInput.value,
         };
 
+        if (!newContact.name) {
+            this.setState({
+                errorMessage: 'The name is required',
+            });
+            return;
+        }
+        if (!newContact.phoneNumber) {
+            this.setState({
+                errorMessage: 'The phone number is required',
+            });
+            return;
+        }
+        if (!newContact.email) {
+            this.setState({
+                errorMessage: 'The email is required',
+            });
+            return;
+        }
+
         this.props.createContact(newContact);
     }
 
     componentWillReceiveProps(nextProps) {
-        if (!nextProps.isSubmitting && this.props.isSubmitting && nextProps.errorMessage === null) {
+        if (wasSuccessfulSubmission(nextProps.isSubmitting, this.props.isSubmitting, nextProps.errorMessage)) {
             // the submission was successful
             this.nameInput.value = '';
             this.phoneNumberInput.value = '';
@@ -36,9 +68,11 @@ export class AddContact extends React.Component {
     }
 
     render() {
+        // this example is using uncontrolled components (notice the use of refs)
         return (
             <div>
                 <h3>Add Contact</h3>
+                {this.state.errorMessage && <div className="error-message" style={{ color: 'red' }}>{this.state.errorMessage}</div>}
                 <div>
                     <div>
                         <label htmlFor="newContactName">Name: </label>

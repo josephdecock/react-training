@@ -26,6 +26,7 @@ export class Contacts extends React.Component {
     }
 
     render() {
+        // this example is using a controlled input (passing value to select)
         return (
             <Loading isLoading={this.props.isLoading}>
                 <div>
