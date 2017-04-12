@@ -19,6 +19,7 @@ const LessonSeven = (props) => (
                 <li>This allows you to really test a component without relying on the behavior of the child components.</li>
                 <li>JSDom provides a JavaScript implementation of the DOM without needing a browser, so your components can still render.</li>
                 <li>This is faster and much lighter weight than PhantomJS, and it does not require fully rendering your components.</li>
+                <li>For more information read <a href="https://superdevelopment.com/2017/04/10/browser-less-unit-testing-your-reactredux-code-with-mocha-chai-and-enzyme/" target="_blank">this blog</a>.</li>
             </ul>
         </Section>
         <Section title="Code Structure" defaultOpen={props.params.section === 'structure'}>

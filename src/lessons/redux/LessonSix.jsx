@@ -20,19 +20,19 @@ const LessonSix = (props) => (
             </ul>
             <Example>
                 <CodeBlock>
-                    {`const fetchMiddleware = (store) => (next) => (action) => (dispatch) => {
+                    {`const fetchMiddleware = (store) => (next) => (action) => {
     if (action.type === 'FETCH_ACTIONS') {
         // dispatch an action indicating that we are starting the fetch
-        dispatch({
+        next({
             type: action.pendingActionType
         });
         fetch(action.url).then((data) => {
-            dispatch({
+            next({
                 type: action.successActionType,
                 data: data,
             });
         }, (error) => {
-            dispatch({
+            next({
                 type: action.errorActionType,
                 error: error,
             });
