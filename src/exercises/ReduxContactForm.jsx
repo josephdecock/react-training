@@ -48,6 +48,7 @@ const ReduxContactForm = () => (
                         <li>redux-immutable (Optional)</li>
                     </ul>
                 </li>
+                <li><a href="https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en" target="_blank">Redux Dev Tools</a></li>
             </ul>
         </Section>
     </div>
