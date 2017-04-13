@@ -38,7 +38,20 @@ const LessonOne = (props) => (
                 <li>The reducer functions for every slice are then called with the current state and that action and are allowed to return a new value for that slice of state that reflects the action.</li>
                 <li>Components can subscribe to specific values from your state which allows them to access the current values.</li>
                 <li>These subscriptions also allows Redux to re-render components whenever a state value subscribed by that component is updated.</li>
+                <li>In order for your application to connect to the store it must be wrapped in a Provider component from react-redux.</li>
             </ul>
+            <Example>
+                <CodeBlock>
+                    {`const store = createStore(...);
+const App = () => {
+    <Provider store={store}>
+        <Router>
+            ...
+        </Router>
+    </Provider>
+};`}
+                </CodeBlock>
+            </Example>
         </Section>
     </div>
 );
