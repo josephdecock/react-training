@@ -47,7 +47,7 @@ const ReduxContactForm = () => (
                         <li>ImmutableJS (optional)</li>
                         <li>redux-immutable (Optional)</li>
                     </ul>
-                <li>
+                </li>
             </ul>
         </Section>
     </div>
