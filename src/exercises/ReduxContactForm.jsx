@@ -38,6 +38,17 @@ const ReduxContactForm = () => (
                         <li>allows the user to sort and filter the contacts</li>
                     </ul>
                 </li>
+                <li>
+                    Dependencies you will need
+                    <ul>
+                        <li>Redux</li>
+                        <li>React-Redux</li>
+                        <li>React-Router-Redux (optional)</li>
+                        <li>ImmutableJS (optional)</li>
+                        <li>redux-immutable (Optional)</li>
+                    </ul>
+                </li>
+                <li><a href="https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en" target="_blank">Redux Dev Tools</a></li>
             </ul>
         </Section>
     </div>

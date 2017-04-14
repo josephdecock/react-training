@@ -9,6 +9,7 @@ const LessonOne = () => (
         <Title>Lesson 1 - Introduction to React</Title>
         <Section title="What Is React (in a nutshell)" defaultOpen>
             <ul>
+                <li>Course Materials available at <a href="https://github.com/jpeters5392/react-training" target="_blank">https://github.com/jpeters5392/react-training</a></li>
                 <li>React is a library for building the UI layer of your application in a declarative and componentized way.</li>
                 <li>Facebook took a practical view of real world web development and built a framework based on that</li>
                 <li>As such, it is really only the <em>V</em> part of MVVM</li>
