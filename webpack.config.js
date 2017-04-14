@@ -19,7 +19,8 @@ var config = {
     publicPath: "/",            // New
   },
   plugins: [
-    new webpack.optimize.CommonsChunkPlugin({ name: "vendor", filename: "vendor.bundle.js"})
+    new webpack.optimize.CommonsChunkPlugin({ name: "vendor", filename: "vendor.bundle.js"}),
+    new webpack.SourceMapDevToolPlugin()
   ],
   resolve: {
     extensions: ['.js', '.jsx']

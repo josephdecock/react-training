@@ -32,8 +32,11 @@
     "webpack-dev-server": "^2.4.1"
   },
   "dependencies": {
+    "ajax-request": "^1.2.1",
     "react": "^15.4.2",
-    "react-dom": "^15.4.2",
-    "react-router": "^3.0.2"
+    "react-dom": "15.4.2",
+    "react-redux": "^5.0.4",
+    "react-router": "3.0.2",
+    "redux": "^3.6.0"
   }
 }
